@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/hutko-service/react-native-sdk/deprecated/Logo.png" alt="hutko logo" width="240" />
-</p>
+<img src="https://raw.githubusercontent.com/hutko-service/react-native-sdk/deprecated/Logo.png" alt="hutko logo" />
 
 ## Інструкція з встановлення
 
