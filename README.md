@@ -1,6 +1,8 @@
-# hutko Payment Module for JoomShopping
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hutko-service/react-native-sdk/deprecated/Logo.png" alt="hutko logo" width="240" />
+</p>
 
-## 🇺🇦 Інструкція з встановлення (UA)
+## Інструкція з встановлення
 
 ### 1. Зайдіть в адміністративну панель вашого сайту.
 
@@ -38,7 +40,7 @@
 
 ---
 
-## 🇺🇸 Installation Guide (EN)
+## Installation Guide
 
 ### 1. Open your website’s admin panel.
 
