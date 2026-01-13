@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="file" version="4.0" method="upgrade">
+
+    <!-- Basic extension info -->
+    <name>pm_hutko</name>
+    <author>Hutko Service</author>
+    <authorEmail>support@hutko.service</authorEmail>
+    <authorUrl>https://github.com/hutko-service/Joomla-JoomShopping</authorUrl>
+    <version>1.0.0</version>
+    <description>Hutko payment method plugin for JoomShopping (Joomla)</description>
+    <license>MIT</license>
+    <creationDate>2026-01-13</creationDate>
+
+    <!-- Files to install -->
+    <files>
+        <!-- main PHP file -->
+        <filename>pm_hutko.php</filename>
+        <!-- include any support files -->
+        <filename>hutko.xml</filename>
+        <!-- if you need SQL updates -->
+        <folder>sql</folder>
+    </files>
+
+    <!-- JoomShopping specific structure -->
+    <install>
+        <!-- SQL scripts if needed -->
+        <sql>
+            <file driver="mysql" charset="utf8">update.sql</file>
+        </sql>
+    </install>
+
+</extension>
