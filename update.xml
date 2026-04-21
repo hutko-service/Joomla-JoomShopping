@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>hutko for JoomShopping Package</name>
+        <description>Installable Joomla package for the hutko JoomShopping payment integration.</description>
+        <element>pkg_pm_hutko</element>
+        <type>package</type>
+        <version>1.0.1</version>
+        <infourl title="Project page">https://github.com/hutko-service/Joomla-JoomShopping</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/hutko-service/Joomla-JoomShopping/releases/download/v1.0.1/pkg_pm_hutko-jed.zip</downloadurl>
+        </downloads>
+        <maintainer>Hutko Service</maintainer>
+        <maintainerurl>https://github.com/hutko-service/Joomla-JoomShopping</maintainerurl>
+        <targetplatform name="joomla" version="(4\.[0-9]+|5\.[0-9]+)"/>
+        <php_minimum>7.4.0</php_minimum>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+    </update>
+</updates>

@@ -1,74 +1,25 @@
-<img src="https://raw.githubusercontent.com/hutko-service/react-native-sdk/deprecated/Logo.png" alt="hutko logo" />
+# Hutko for JoomShopping
 
-## Інструкція з встановлення
+JoomShopping payment integration for Joomla 4.
 
-### 1. Зайдіть в адміністративну панель вашого сайту.
+## Installation
 
-### 2. Перейдіть у меню:
-**Компоненти → JoomShopping → Встановлення та оновлення**
+1. Open the Joomla administrator area.
+2. Go to `Components -> JoomShopping -> Install & Update`.
+3. Upload the package zip `pkg_pm_hutko-jed.zip`.
+4. Open `Components -> JoomShopping -> Options -> Payment Methods`.
+5. Edit `Hutko` and enter the merchant ID and secret key from your Hutko account.
+6. Choose the order statuses for successful and failed payments.
+7. Publish the payment method.
 
-### 3. Встановіть модуль оплати:
-- У розділі **Завантажити файл пакета** натисніть **Вибрати файл**
-- Оберіть архів із модулем оплати **hutko**
-- Натисніть **Завантажити**
+## JED compliance notes
 
-### 4. Налаштуйте спосіб оплати:
-Перейдіть у:  
-**Компоненти → JoomShopping → Опції → Спосіб оплати → hutko → Конфігурація**
+- The package includes GPL licensing metadata.
+- The archive contains a Joomla package manifest `pkg_pm_hutko.xml` so Joomla can detect and install it as a standard package.
+- The archive contains a Joomla update server definition in `update.xml`.
+- The embedded checkout no longer depends on third-party CDN assets other than the Hutko-hosted checkout library required for payment processing.
+- The installer copies the payment files directly into `components/com_jshopping/payments/pm_hutko`.
 
-Заповніть такі поля:
+## Updating
 
-#### 1) Merchant ID та Секретний ключ (Ключ оплати)
-Дані можна знайти у кабінеті hutko:  
-**Налаштування мерчанта → Основний профіль → Ключ оплати / ID мерчанта**
-
-#### 2) Статус замовлення для успішних транзакцій
-Рекомендовано: **Paid** (замовлення оплачено)
-
-#### 3) Статус замовлення для неуспішних транзакцій
-- Щоб скасувати замовлення при відмові від оплати → **Canceled**  
-- Щоб дозволити повторну спробу оплати → **Pending**
-
-### 5. Увімкніть спосіб оплати:
-- Перейдіть на вкладку **Головна**
-- Встановіть позначку **Публікація**, щоб зробити спосіб оплати доступним при оформленні замовлення
-
-### 6. Збережіть зміни, натиснувши **Зберегти**.
-
-
----
-
-## Installation Guide
-
-### 1. Open your website’s admin panel.
-
-### 2. Navigate to:
-**Components → JoomShopping → Install & Update**
-
-### 3. Install the payment module:
-- In **Upload Package File**, click **Choose File**
-- Select the archive with the **hutko** payment module
-- Click **Upload**
-
-### 4. Configure the payment method:
-Go to:  
-**Components → JoomShopping → Options → Payment Method → hutko → Configuration**
-
-Fill in the required fields:
-
-#### 1) Merchant ID & Secret Key (Payment Key)
-Get these from your hutko dashboard:  
-**Merchant Settings → Main Profile → Payment Key / Merchant ID**
-
-#### 2) Order Status for Successful Transactions
-Recommended: **Paid**
-
-#### 3) Order Status for Failed Transactions
-- To cancel the order when payment is declined → **Canceled**  
-- To allow the customer to retry payment → **Pending**
-
-### 5. Enable the payment method:
-- Go to the **Main** tab
-- Enable **Publication** to make the method available at checkout
-
-### 6. Save your changes by clicking **Save**.
+Host both `update.xml` and the release zip `pkg_pm_hutko-jed.zip` at stable public URLs before submitting or updating the JED listing.

@@ -1,25 +1,30 @@
 INSERT INTO `#__jshopping_payment_method` (
-	`payment_code`, 
-	`payment_class`, 
-	`payment_publish`, 
-	`payment_ordering`, 
-	`payment_type`, 
-	`price`, 
-	`price_type`, 
-	`tax_id`, 
-	`show_descr_in_email`, 
-	`name_en-GB`,
-	`name_de-DE`
-	) VALUES (
-	'hutko',
-	'pm_hutko',
-	0, 
-	0, 
-	2, 
-	0.00, 
-	1, 
-	-1, 
-	0, 
-	'hutko',
-	'hutko'
+    `payment_code`,
+    `payment_class`,
+    `payment_publish`,
+    `payment_ordering`,
+    `payment_type`,
+    `price`,
+    `price_type`,
+    `tax_id`,
+    `show_descr_in_email`,
+    `name_en-GB`,
+    `name_de-DE`
+)
+SELECT
+    'hutko',
+    'pm_hutko',
+    0,
+    0,
+    2,
+    0.00,
+    1,
+    -1,
+    0,
+    'hutko',
+    'hutko'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM `#__jshopping_payment_method`
+    WHERE `payment_class` = 'pm_hutko'
 );

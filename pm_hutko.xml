@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="file" version="4.0" method="upgrade">
-
-    <!-- Basic extension info -->
-    <name>pm_hutko</name>
+<extension type="file" method="upgrade" version="4.0">
+    <name>hutko for JoomShopping</name>
+    <element>pm_hutko</element>
     <author>Hutko Service</author>
     <authorEmail>support@hutko.service</authorEmail>
     <authorUrl>https://github.com/hutko-service/Joomla-JoomShopping</authorUrl>
-    <version>1.0.0</version>
-    <description>Hutko payment method plugin for JoomShopping (Joomla)</description>
-    <license>MIT</license>
-    <creationDate>2026-01-13</creationDate>
+    <version>1.0.1</version>
+    <creationDate>2026-04-14</creationDate>
+    <copyright>(C) 2026 Hutko Service. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <description>hutko payment method for JoomShopping on Joomla.</description>
+    <scriptfile>script.php</scriptfile>
 
-    <!-- Files to install -->
     <files>
-        <!-- main PHP file -->
-        <filename>pm_hutko.php</filename>
-        <!-- include any support files -->
-        <filename>hutko.xml</filename>
-        <!-- if you need SQL updates -->
-        <folder>sql</folder>
+        <filename>script.php</filename>
+        <filename>README.md</filename>
+        <filename>LICENSE.txt</filename>
+        <filename>update.xml</filename>
+        <filename>update.sql</filename>
+        <filename>uninstall.sql</filename>
+        <folder>components</folder>
     </files>
 
-    <!-- JoomShopping specific structure -->
     <install>
-        <!-- SQL scripts if needed -->
         <sql>
-            <file driver="mysql" charset="utf8">update.sql</file>
+            <file driver="mysql" charset="utf8mb4">update.sql</file>
         </sql>
     </install>
 
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8mb4">uninstall.sql</file>
+        </sql>
+    </uninstall>
+
+    <updateservers>
+        <server type="extension" priority="1" name="hutko for JoomShopping Updates">https://raw.githubusercontent.com/hutko-service/Joomla-JoomShopping/main/update.xml</server>
+    </updateservers>
 </extension>
