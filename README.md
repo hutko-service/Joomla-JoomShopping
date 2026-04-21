@@ -4,13 +4,14 @@ JoomShopping payment integration for Joomla 4.
 
 ## Installation
 
-1. Open the Joomla administrator area.
-2. Go to `Components -> JoomShopping -> Install & Update`.
-3. Upload the package zip `pkg_pm_hutko-jed.zip`.
-4. Open `Components -> JoomShopping -> Options -> Payment Methods`.
-5. Edit `Hutko` and enter the merchant ID and secret key from your Hutko account.
-6. Choose the order statuses for successful and failed payments.
-7. Publish the payment method.
+1. Go to Releases. Download `pkg_pm_hutko-jed.zip` 
+2. Open the Joomla administrator area.
+3. Go to `Components -> JoomShopping -> Install & Update`.
+4. Upload the package zip `pkg_pm_hutko-jed.zip`.
+5. Open `Components -> JoomShopping -> Options -> Payment Methods`.
+6. Edit `Hutko` and enter the merchant ID and secret key from your Hutko account.
+7. Choose the order statuses for successful and failed payments.
+8. Publish the payment method.
 
 ## JED compliance notes
 
