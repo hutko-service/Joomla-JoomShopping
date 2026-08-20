@@ -299,18 +299,40 @@ class pm_hutko extends PaymentRoot
         return (string) $checkoutUrl;
     }
 
-    private function getReservationDataProducts($orderItemsProducts): array
+    private function getReservationDataProducts($orderItemsProducts, float $orderDiscount = 0): array
     {
         $reservationDataProducts = [];
+        $productsTotal = 0.0;
 
         foreach ($orderItemsProducts as $orderProduct) {
+            $totalAmount = (float) $orderProduct->product_item_price * (float) $orderProduct->product_quantity;
             $reservationDataProducts[] = [
                 'id' => $orderProduct->product_id,
                 'name' => $orderProduct->product_name,
                 'price' => $orderProduct->product_item_price,
-                'total_amount' => $orderProduct->product_item_price * $orderProduct->product_quantity,
+                'total_amount' => $totalAmount,
                 'quantity' => $orderProduct->product_quantity,
             ];
+            $productsTotal += $totalAmount;
+        }
+
+        if ($orderDiscount > 0 && $productsTotal > 0 && $reservationDataProducts !== []) {
+            $discountedTotal = max(0, round($productsTotal - $orderDiscount, 2));
+            $distributedTotal = 0.0;
+            $lastIndex = count($reservationDataProducts) - 1;
+
+            foreach ($reservationDataProducts as $index => &$product) {
+                $totalAmount = $index === $lastIndex
+                    ? round($discountedTotal - $distributedTotal, 2)
+                    : round($product['total_amount'] * $discountedTotal / $productsTotal, 2);
+
+                $product['total_amount'] = $totalAmount;
+                $product['price'] = $product['quantity'] > 0
+                    ? round($totalAmount / $product['quantity'], 2)
+                    : $totalAmount;
+                $distributedTotal += $totalAmount;
+            }
+            unset($product);
         }
 
         return $reservationDataProducts;
@@ -335,7 +357,10 @@ class pm_hutko extends PaymentRoot
             'cms_plugin_version' => self::VERSION,
             'shop_domain' => Uri::root(),
             'path' => $_SERVER['HTTP_REFERER'] ?? '',
-            'products' => $this->getReservationDataProducts($order->getAllItems()),
+            'products' => $this->getReservationDataProducts(
+                $order->getAllItems(),
+                (float) ($order->order_discount ?? 0)
+            ),
         ];
 
         return base64_encode((string) json_encode($reservationData));
